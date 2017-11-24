@@ -1,0 +1,19 @@
+C:\Users\Gerbrand\Desktop\Intellidoorn software\Intellidoorn software\bin\Debug\Intellidoorn software.exe.config
+C:\Users\Gerbrand\Desktop\Intellidoorn software\Intellidoorn software\obj\Debug\Intellidoorn software.csprojResolveAssemblyReference.cache
+C:\Users\Gerbrand\Desktop\Intellidoorn software\Intellidoorn software\obj\Debug\Intellidoorn_software.Form1.resources
+C:\Users\Gerbrand\Desktop\Intellidoorn software\Intellidoorn software\obj\Debug\Intellidoorn_software.Properties.Resources.resources
+C:\Users\Gerbrand\Desktop\Intellidoorn software\Intellidoorn software\obj\Debug\Intellidoorn software.csproj.GenerateResource.Cache
+C:\Users\Gerbrand\Desktop\Intellidoorn software\Intellidoorn software\bin\Debug\Intellidoorn software.exe
+C:\Users\Gerbrand\Desktop\Intellidoorn software\Intellidoorn software\bin\Debug\Intellidoorn software.pdb
+C:\Users\Gerbrand\Desktop\Intellidoorn software\Intellidoorn software\obj\Debug\Intellidoorn software.exe
+C:\Users\Gerbrand\Desktop\Intellidoorn software\Intellidoorn software\obj\Debug\Intellidoorn software.pdb
+C:\Users\Balint\Downloads\Intellidoorn software Gerbrand\Intellidoorn software\obj\Debug\Intellidoorn software.csprojResolveAssemblyReference.cache
+C:\Users\Balint\Downloads\Intellidoorn software Gerbrand\Intellidoorn software\obj\Debug\Intellidoorn_software.Form1.resources
+C:\Users\Balint\Downloads\Intellidoorn software Gerbrand\Intellidoorn software\obj\Debug\Intellidoorn_software.Properties.Resources.resources
+C:\Users\Balint\Downloads\Intellidoorn software Gerbrand\Intellidoorn software\obj\Debug\Intellidoorn software.csproj.GenerateResource.Cache
+C:\Users\Balint\Downloads\Intellidoorn software Gerbrand\Intellidoorn software\obj\Debug\Intellidoorn software.csproj.CoreCompileInputs.cache
+C:\Users\Balint\Downloads\Intellidoorn software Gerbrand\Intellidoorn software\obj\Debug\Intellidoorn software.exe
+C:\Users\Balint\Downloads\Intellidoorn software Gerbrand\Intellidoorn software\obj\Debug\Intellidoorn software.pdb
+C:\Users\Balint\Downloads\Intellidoorn software Gerbrand\Intellidoorn software\bin\Debug\Intellidoorn software.exe.config
+C:\Users\Balint\Downloads\Intellidoorn software Gerbrand\Intellidoorn software\bin\Debug\Intellidoorn software.exe
+C:\Users\Balint\Downloads\Intellidoorn software Gerbrand\Intellidoorn software\bin\Debug\Intellidoorn software.pdb
