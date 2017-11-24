@@ -1,4 +1,5 @@
-﻿using Intellidoorn_software.ReaderStates;
+﻿using Intellidoorn_software;
+using Intellidoorn_Testsoftware;
 //using ServerData;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace Intellidoorn_software
 
         static Thread scanThread;
         static Thread controlThread;
+        static Thread standThread;
         static NetworkStream stream;
         static StreamWriter output;
         static StreamReader input;
@@ -26,8 +28,8 @@ namespace Intellidoorn_software
         static string host = "192.168.10.99";
         static int port = 23;
 
-        public static AReaderState state;
-        //public static List<Stand> stands;
+        public static LocationAlgorithm state;
+        public static List<Stand> stands;
         public static List<TagInfo> tags;
         public static TagInfo currentCarpet;
         public static string currentCarpetNumber;
@@ -37,16 +39,7 @@ namespace Intellidoorn_software
         {
             scanThread = new Thread(Run);
             controlThread = new Thread(PrintTags);
-            tags = new List<TagInfo>();
-            //state = new ClearState();
-
-            disconnected = false;
-        }
-
-        public static void ReaderConnectionRetarded()
-        {
-            scanThread = new Thread(Run);
-            controlThread = new Thread(PrintTags);
+            standThread = new Thread(PrintLocation);
             tags = new List<TagInfo>();
             //state = new ClearState();
 
@@ -78,6 +71,7 @@ namespace Intellidoorn_software
             }
 
             controlThread.Start();
+            //standThread.Start();
         }
 
         public static void CloseConnection()
@@ -93,15 +87,21 @@ namespace Intellidoorn_software
             while (!disconnected)
             {
                 //Console.Clear();
-
-                foreach (TagInfo t in tags)
+                foreach (TagInfo t in tags) {
                     Console.WriteLine(t.ToString());
+                }
                 Console.WriteLine("-----------------------------------------");
 
                 Thread.Sleep(100);
             }
 
             Console.WriteLine("Exited print");
+        }
+
+        public static void PrintLocation()
+        {
+            String s = state.getLocation();
+            Console.WriteLine(s);
         }
 
         public static void Run()

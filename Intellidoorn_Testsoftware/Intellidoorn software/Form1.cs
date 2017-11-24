@@ -33,9 +33,9 @@ namespace Intellidoorn_software
 
     private void button1_Click(object sender, EventArgs e)
         {
-            ReaderConnection rct1 = new ReaderConnection(); 
-            ReaderConnection.ReaderConnectionRetarded();
+            reader = ReaderConnection.GetInstance();
             ReaderConnection.OpenConnection();
+            
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

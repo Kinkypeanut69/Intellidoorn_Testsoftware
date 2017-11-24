@@ -17,3 +17,13 @@ C:\Users\Balint\Downloads\Intellidoorn software Gerbrand\Intellidoorn software\o
 C:\Users\Balint\Downloads\Intellidoorn software Gerbrand\Intellidoorn software\bin\Debug\Intellidoorn software.exe.config
 C:\Users\Balint\Downloads\Intellidoorn software Gerbrand\Intellidoorn software\bin\Debug\Intellidoorn software.exe
 C:\Users\Balint\Downloads\Intellidoorn software Gerbrand\Intellidoorn software\bin\Debug\Intellidoorn software.pdb
+C:\Users\Balint\Documents\GitHub\Intellidoorn_Testsoftware\Intellidoorn_Testsoftware\Intellidoorn software\obj\Debug\Intellidoorn software.csprojResolveAssemblyReference.cache
+C:\Users\Balint\Documents\GitHub\Intellidoorn_Testsoftware\Intellidoorn_Testsoftware\Intellidoorn software\obj\Debug\Intellidoorn_software.Form1.resources
+C:\Users\Balint\Documents\GitHub\Intellidoorn_Testsoftware\Intellidoorn_Testsoftware\Intellidoorn software\obj\Debug\Intellidoorn_Testsoftware.Properties.Resources.resources
+C:\Users\Balint\Documents\GitHub\Intellidoorn_Testsoftware\Intellidoorn_Testsoftware\Intellidoorn software\obj\Debug\Intellidoorn software.csproj.GenerateResource.Cache
+C:\Users\Balint\Documents\GitHub\Intellidoorn_Testsoftware\Intellidoorn_Testsoftware\Intellidoorn software\obj\Debug\Intellidoorn software.csproj.CoreCompileInputs.cache
+C:\Users\Balint\Documents\GitHub\Intellidoorn_Testsoftware\Intellidoorn_Testsoftware\Intellidoorn software\bin\Debug\Intellidoorn_Testsoftware.exe.config
+C:\Users\Balint\Documents\GitHub\Intellidoorn_Testsoftware\Intellidoorn_Testsoftware\Intellidoorn software\bin\Debug\Intellidoorn_Testsoftware.exe
+C:\Users\Balint\Documents\GitHub\Intellidoorn_Testsoftware\Intellidoorn_Testsoftware\Intellidoorn software\bin\Debug\Intellidoorn_Testsoftware.pdb
+C:\Users\Balint\Documents\GitHub\Intellidoorn_Testsoftware\Intellidoorn_Testsoftware\Intellidoorn software\obj\Debug\Intellidoorn_Testsoftware.exe
+C:\Users\Balint\Documents\GitHub\Intellidoorn_Testsoftware\Intellidoorn_Testsoftware\Intellidoorn software\obj\Debug\Intellidoorn_Testsoftware.pdb
