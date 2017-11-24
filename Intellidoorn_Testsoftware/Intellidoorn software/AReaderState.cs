@@ -4,13 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Intellidoorn_Testsoftware
+namespace Intellidoorn_software.ReaderStates
 {
-    class Program
+    public abstract class AReaderState
     {
-        static void Main(string[] args)
-        {
-
-        }
+        public abstract void Handle();
     }
 }
