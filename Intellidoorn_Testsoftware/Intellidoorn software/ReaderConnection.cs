@@ -31,6 +31,7 @@ namespace Intellidoorn_software
         public static LocationAlgorithm state;
         public static List<Stand> stands;
         public static List<TagInfo> tags;
+        public static TagInfo closestTag;
         public static TagInfo currentCarpet;
         public static string currentCarpetNumber;
         public static string targetStand;
@@ -41,7 +42,16 @@ namespace Intellidoorn_software
             controlThread = new Thread(PrintTags);
             standThread = new Thread(PrintLocation);
             tags = new List<TagInfo>();
-            //state = new ClearState();
+            stands = new List<Stand>();
+            
+            state = new LocationAlgorithm();
+
+            Stand s1 = new Stand(1, "100000000000000000000122", "A1", false);
+            Stand s2 = new Stand(2, "f60068060000000000000000", "A2", false);
+            Stand s3 = new Stand(3, "fbfb0000000000000aa10002", "A3", false);
+            Stand s4 = new Stand(4, "fbfb0000000000000aa10001", "A4", false);
+            Stand s5 = new Stand(5, "fbfb0000000000000ab10002", "A5", false);
+            stands.Add(s1);
 
             disconnected = false;
         }
@@ -71,7 +81,8 @@ namespace Intellidoorn_software
             }
 
             controlThread.Start();
-            //standThread.Start();
+            Thread.Sleep(600);
+            standThread.Start();
         }
 
         public static void CloseConnection()
@@ -100,8 +111,13 @@ namespace Intellidoorn_software
 
         public static void PrintLocation()
         {
-            String s = state.getLocation();
-            Console.WriteLine(s);
+            while (!disconnected)
+            {
+                String s = state.getLocation();
+                Console.WriteLine(s);
+                Thread.Sleep(100);
+            }
+            Console.WriteLine("Exited Stand Print");
         }
 
         public static void Run()

@@ -11,12 +11,17 @@ namespace Intellidoorn_Testsoftware
     {
         Stand closestStand;
         String finalLocation = "";
-        
+        List<TagInfo> strongestTags;
+
+        internal Stand ClosestStand { get => closestStand; set => closestStand = value; }
+
         public String getLocation()
         {
-            List<TagInfo> strongestTags = ReaderConnection.tags.OrderByDescending(t => t.signalStrength).ToList();
-            strongestTags.RemoveRange(5, strongestTags.Count - 5);
-
+            strongestTags = ReaderConnection.tags.OrderByDescending(t => t.signalStrength).ToList();
+            if (strongestTags.Count > 5)
+                {
+                    strongestTags.RemoveRange(5, strongestTags.Count - 5);
+                }
             int maxCount = 0;
             int maxCount2 = 0;
             string maxStand = "";
@@ -33,7 +38,7 @@ namespace Intellidoorn_Testsoftware
                 string standCode = s.tagId.Substring(0, 6);
 
                 // FIND HIGHEST OCCURRENCE AMONGST ALL TAGS
-                int standOccurrence = ReaderConnection.tags.FindAll(t => t.itemCode.Contains(standCode)).Count;
+                int standOccurrence = ReaderConnection.tags.FindAll(t => t.itemCode.Contains(standCode)).Count();
                 if (standOccurrence > maxCount)
                 {
                     maxCount = standOccurrence;
@@ -69,8 +74,6 @@ namespace Intellidoorn_Testsoftware
                 finalLocation = filteredStand;
             else
                 finalLocation = averageStand;
-
-            Console.WriteLine("Final Location: ", finalLocation);
             return finalLocation;
             
         }

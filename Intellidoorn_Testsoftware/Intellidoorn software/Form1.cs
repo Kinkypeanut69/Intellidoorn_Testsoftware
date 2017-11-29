@@ -25,6 +25,8 @@ namespace Intellidoorn_software
             AllocConsole();
             connected = false;
             InitializeComponent();
+
+
         }
 
     [DllImport("kernel32.dll", SetLastError = true)]
