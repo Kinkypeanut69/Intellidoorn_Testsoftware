@@ -1,0 +1,7 @@
+*.pdb
+Intellidoorn_Testsoftware/Intellidoorn software/obj/Debug/Intellidoorn_Testsoftware.exe
+*.suo
+Intellidoorn_Testsoftware/.vs/Intellidoorn software/v15/Server/sqlite3/storage.ide
+*.ide
+Intellidoorn_Testsoftware/Intellidoorn software/bin/Debug/Intellidoorn_Testsoftware.pdb
+*.pdb
