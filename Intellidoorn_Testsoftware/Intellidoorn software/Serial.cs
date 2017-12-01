@@ -5,10 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO.Ports;
 
-
-
-
-namespace SerialConsole
+namespace Intellidoorn_software
 {
     class Serial
     {

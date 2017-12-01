@@ -1,14 +1,10 @@
-﻿using Intellidoorn_software;
-using Intellidoorn_Testsoftware;
-//using ServerData;
+﻿//using ServerData;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Sockets;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace Intellidoorn_software
 {
@@ -16,6 +12,7 @@ namespace Intellidoorn_software
     {
         public static ReaderConnection _instance { get; private set; }
         public static bool disconnected { get; private set; }
+        private System.IO.Ports.SerialPort serialPort1;
 
         static Thread scanThread;
         static Thread controlThread;
@@ -29,12 +26,15 @@ namespace Intellidoorn_software
         static int port = 23;
 
         public static LocationAlgorithm state;
-        public static List<Stand> stands;
         public static List<TagInfo> tags;
+        public static List<Stand> stands;
         public static TagInfo closestTag;
         public static TagInfo currentCarpet;
         public static string currentCarpetNumber;
         public static string targetStand;
+
+        public static String standCode = "100000";
+        public static TagInfo strongestTag = null;
 
         public ReaderConnection()
         {
@@ -43,15 +43,13 @@ namespace Intellidoorn_software
             standThread = new Thread(PrintLocation);
             tags = new List<TagInfo>();
             stands = new List<Stand>();
-            
             state = new LocationAlgorithm();
 
-            Stand s1 = new Stand(1, "100000000000000000000122", "A1", false);
-            Stand s2 = new Stand(2, "f60068060000000000000000", "A2", false);
-            Stand s3 = new Stand(3, "fbfb0000000000000aa10002", "A3", false);
-            Stand s4 = new Stand(4, "fbfb0000000000000aa10001", "A4", false);
-            Stand s5 = new Stand(5, "fbfb0000000000000ab10002", "A5", false);
+            Stand s1 = new Stand(1, "100000000000000000000122", "100000000000000000000123", "100000000000000000000124", "100000000000000000000125", "A");
+            Stand s2 = new Stand(2, "100000000000000000000118", "100000000000000000000119", "100000000000000000000120", "100000000000000000000121", "B");
+
             stands.Add(s1);
+            stands.Add(s2);
 
             disconnected = false;
         }
@@ -83,6 +81,7 @@ namespace Intellidoorn_software
             controlThread.Start();
             Thread.Sleep(600);
             standThread.Start();
+            Serial s1 = new Serial();
         }
 
         public static void CloseConnection()
@@ -120,6 +119,24 @@ namespace Intellidoorn_software
             Console.WriteLine("Exited Stand Print");
         }
 
+        public static TagInfo getStrongestSignalTag()
+        {
+            bool first = true;
+            foreach(TagInfo tag in tags)
+            {
+                if (first)
+                {
+                    strongestTag = tag;
+                }
+                if (tag.signalStrength > strongestTag.signalStrength)
+                {
+                    strongestTag = tag;
+                }
+            }
+            first = false;
+            return strongestTag;
+        }
+
         public static void Run()
         {
             while (!disconnected)
@@ -140,10 +157,14 @@ namespace Intellidoorn_software
 
                     TagInfo tag = tags.FirstOrDefault(t => t.itemCode == itemCode);
 
-                    if (tag == null)
-                        tags.Add(new TagInfo(itemCode, strength));
-                    else
-                        tag.signalStrength = strength;
+                    if (itemCode.Contains(standCode))
+                    {
+                        if (tag == null)
+                            tags.Add(new TagInfo(itemCode, strength));
+                        else
+                            tag.signalStrength = strength;
+                    }
+                    
                 }
                 else if (line.IndexOf("\"presence\",\"delete\"") > -1)
                 {

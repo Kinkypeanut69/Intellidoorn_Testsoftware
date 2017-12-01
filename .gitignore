@@ -1,6 +1,7 @@
 *.pdb
 Intellidoorn_Testsoftware/Intellidoorn software/obj/Debug/Intellidoorn_Testsoftware.exe
 *.suo
+*suo
 Intellidoorn_Testsoftware/.vs/Intellidoorn software/v15/Server/sqlite3/storage.ide
 *.ide
 Intellidoorn_Testsoftware/Intellidoorn software/bin/Debug/Intellidoorn_Testsoftware.pdb
@@ -22,3 +23,13 @@ Intellidoorn_Testsoftware/Intellidoorn software/obj/Debug/DesignTimeResolveAssem
 Intellidoorn_Testsoftware/Intellidoorn software/obj/Debug/Intellidoorn software.csproj.CoreCompileInputs.cache
 *.cache
 *.cache
+Intellidoorn_Testsoftware/.vs/Intellidoorn software/v15/.suo
+Intellidoorn_Testsoftware/.vs/Intellidoorn software/v15/.suo
+bin/
+obj/
+*.suo
+*.user
+*.pdb
+Intellidoorn_Testsoftware/Intellidoorn software/obj/Debug/Intellidoorn_Testsoftware.exe
+Intellidoorn_Testsoftware/Intellidoorn software/obj/Debug/Intellidoorn_Testsoftware.pdb
+Intellidoorn_Testsoftware/Intellidoorn software/obj/Debug/Intellidoorn_Testsoftware.exe
