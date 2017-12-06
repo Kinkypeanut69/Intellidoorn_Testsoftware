@@ -15,18 +15,19 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Intellidoorn_software
-{ 
+{
+    
     public partial class Form1 : Form
     {
         ReaderConnection reader;
         bool connected;
+        public static string COMPort = "COM4";
         public Form1()
         {
             AllocConsole();
             connected = false;
             InitializeComponent();
-
-
+            textBox1.Text = "COM4";
         }
 
     [DllImport("kernel32.dll", SetLastError = true)]
@@ -43,6 +44,17 @@ namespace Intellidoorn_software
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            COMPort = textBox1.Text;
         }
     }
 }
