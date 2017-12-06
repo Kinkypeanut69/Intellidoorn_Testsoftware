@@ -3,15 +3,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Intellidoorn_software
 {
     public class LocationAlgorithm
     {
+        //Serial s1 = new Serial();
         Stand closestStand;
         Stand finalLocation = null;
         List<TagInfo> strongestTags;
+        int finalHeight;
 
         internal Stand ClosestStand { get => closestStand; set => closestStand = value; }
 
@@ -30,12 +33,13 @@ namespace Intellidoorn_software
             Stand averageStand = null;
 
             string location = "";
-
+            //height = s1.ReadData();
             foreach (Stand s in ReaderConnection.stands)
             {
                 foreach (String tag in s.tags)
                 {
-                    
+                    //height = s1.ReadData();
+                    //Thread.Sleep(400);
                     // FIND HIGHEST OCCURRENCE AMONGST ALL STANDS
                     int standOccurrence = ReaderConnection.tags.FindAll(t => t.itemCode.Contains(tag)).Count();
                     if (standOccurrence > maxCount)
@@ -59,18 +63,23 @@ namespace Intellidoorn_software
                         }
                     }
                 }
+                if(ReaderConnection.laserHeight >= s.baseHeight && ReaderConnection.laserHeight <= (s.baseHeight + s.height))
+                {
+                    finalHeight = s.row;
+                }
             }
 
-            if (maxCount != maxCount2)
-                finalLocation = maxStand;
-           else 
-                finalLocation = averageStand;
-            if (finalLocation != null)
-                location = finalLocation.locationDescription;
-            return location;
-
-
-
+            if (finalHeight != null)
+            {
+                if (maxCount != maxCount2)
+                    finalLocation = maxStand;
+                else
+                    finalLocation = averageStand;
+                if (finalLocation != null)
+                    location = finalLocation.locationDescription + finalHeight;
+                return location;
+            } else
+                return "not valid";
         }
     }
 }

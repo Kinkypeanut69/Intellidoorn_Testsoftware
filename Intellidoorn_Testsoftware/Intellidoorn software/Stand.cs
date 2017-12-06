@@ -14,11 +14,13 @@ namespace Intellidoorn_software
         public string tagId3 { get; private set; }
         public string tagId4 { get; private set; }
         public List<String> tags = new List<string>();
-
+        public double height;
+        public double baseHeight;
+        public int row;
 
         public string locationDescription { get; private set; }
 
-        public Stand(int locationId, string tagId1, string tagId2, string tagId3, string tagId4, string locationDescription)
+        public Stand(int locationId, string tagId1, string tagId2, string tagId3, string tagId4, string locationDescription, double height, double baseHeight, int row)
         {
             this.locationId = locationId;
             this.tagId1 = tagId1;
@@ -26,6 +28,9 @@ namespace Intellidoorn_software
             this.tagId3 = tagId3;
             this.tagId4 = tagId4;
             this.locationDescription = locationDescription;
+            this.height = height;
+            this.baseHeight = baseHeight;
+            this.row = row;
             tags.Add(tagId1);
             tags.Add(tagId2);
             tags.Add(tagId3);

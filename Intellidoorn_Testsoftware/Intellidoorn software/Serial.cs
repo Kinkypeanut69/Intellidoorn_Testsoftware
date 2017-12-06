@@ -10,13 +10,11 @@ namespace Intellidoorn_software
     class Serial
     {
         private System.IO.Ports.SerialPort serialPort1;
-
+        private const string COMPort = "COM4";
         public Serial()
         {
-
-
             this.serialPort1 = new SerialPort();
-            serialPort1.PortName = "COM3";
+            serialPort1.PortName = COMPort;
             serialPort1.BaudRate = 19200;
         }
 
@@ -41,8 +39,6 @@ namespace Intellidoorn_software
             }
             catch (Exception ex)
             {
-
-
                 Console.WriteLine(ex);
             }
 

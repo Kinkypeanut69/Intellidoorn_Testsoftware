@@ -12,20 +12,24 @@ namespace Intellidoorn_software
     {
         public static ReaderConnection _instance { get; private set; }
         public static bool disconnected { get; private set; }
+        public static bool first = true;
         private System.IO.Ports.SerialPort serialPort1;
 
         static Thread scanThread;
         static Thread controlThread;
         static Thread standThread;
+        static Thread laserThread;
         static NetworkStream stream;
         static StreamWriter output;
         static StreamReader input;
         static TcpClient socket;
 
+
         static string host = "192.168.10.99";
         static int port = 23;
 
         public static LocationAlgorithm state;
+        public static Serial serial1;
         public static List<TagInfo> tags;
         public static List<Stand> stands;
         public static TagInfo closestTag;
@@ -35,18 +39,23 @@ namespace Intellidoorn_software
 
         public static String standCode = "100000";
         public static TagInfo strongestTag = null;
+        public static double laserHeight;
+        
 
         public ReaderConnection()
         {
             scanThread = new Thread(Run);
             controlThread = new Thread(PrintTags);
             standThread = new Thread(PrintLocation);
+            laserThread = new Thread(laserDistance);
             tags = new List<TagInfo>();
             stands = new List<Stand>();
             state = new LocationAlgorithm();
+            serial1 = new Serial();
 
-            Stand s1 = new Stand(1, "100000000000000000000122", "100000000000000000000123", "100000000000000000000124", "100000000000000000000125", "A");
-            Stand s2 = new Stand(2, "100000000000000000000118", "100000000000000000000119", "100000000000000000000120", "100000000000000000000121", "B");
+
+            Stand s1 = new Stand(1, "100000000000000000000122", "100000000000000000000123", "100000000000000000000124", "100000000000000000000125", "A", 1.00, 1.00, 1);
+            Stand s2 = new Stand(2, "100000000000000000000118", "100000000000000000000119", "100000000000000000000120", "100000000000000000000121", "B", 1.00, 1.00, 1);
 
             stands.Add(s1);
             stands.Add(s2);
@@ -70,6 +79,7 @@ namespace Intellidoorn_software
                 stream = socket.GetStream();
                 output = new StreamWriter(stream);
                 input = new StreamReader(stream);
+                
 
                 scanThread.Start();
             }
@@ -77,11 +87,11 @@ namespace Intellidoorn_software
             {
                 Console.WriteLine($"Couldn't connect to reader on host { host }.");
             }
-
+            
             controlThread.Start();
             Thread.Sleep(600);
             standThread.Start();
-            Serial s1 = new Serial();
+            laserThread.Start();
         }
 
         public static void CloseConnection()
@@ -135,6 +145,17 @@ namespace Intellidoorn_software
             }
             first = false;
             return strongestTag;
+        }
+
+        public static void laserDistance()
+        {
+            if (!disconnected)
+            {
+                laserHeight = serial1.ReadData();
+                Console.WriteLine(laserHeight);
+                Thread.Sleep(1000);
+            }
+            Console.WriteLine("Exited Laser Connection");
         }
 
         public static void Run()
