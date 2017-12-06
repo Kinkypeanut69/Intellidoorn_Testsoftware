@@ -10,11 +10,11 @@ namespace Intellidoorn_software
 {
     public class LocationAlgorithm
     {
-        //Serial s1 = new Serial();
         Stand closestStand;
         Stand finalLocation = null;
         List<TagInfo> strongestTags;
         int finalHeight;
+        bool goodReading = false;
 
         internal Stand ClosestStand { get => closestStand; set => closestStand = value; }
 
@@ -33,13 +33,10 @@ namespace Intellidoorn_software
             Stand averageStand = null;
 
             string location = "";
-            //height = s1.ReadData();
             foreach (Stand s in ReaderConnection.stands)
             {
                 foreach (String tag in s.tags)
                 {
-                    //height = s1.ReadData();
-                    //Thread.Sleep(400);
                     // FIND HIGHEST OCCURRENCE AMONGST ALL STANDS
                     int standOccurrence = ReaderConnection.tags.FindAll(t => t.itemCode.Contains(tag)).Count();
                     if (standOccurrence > maxCount)
@@ -55,7 +52,6 @@ namespace Intellidoorn_software
                     if (standOccurrence > 0)
                     {
                         int signalStrength = ReaderConnection.tags.FindAll(t => t.itemCode.Contains(tag)).Sum(t => t.signalStrength);
-                        //Console.WriteLine(tagAvg);
                         if (signalStrength > highestSignalStrength)
                         {
                             highestSignalStrength = signalStrength;
@@ -63,13 +59,14 @@ namespace Intellidoorn_software
                         }
                     }
                 }
-                if(ReaderConnection.laserHeight >= s.baseHeight && ReaderConnection.laserHeight <= (s.baseHeight + s.height))
+                if (ReaderConnection.laserHeight >= s.baseHeight && ReaderConnection.laserHeight <= (s.baseHeight + s.height))
                 {
                     finalHeight = s.row;
+                    goodReading = true;
                 }
             }
 
-            if (finalHeight != null)
+            if (goodReading)
             {
                 if (maxCount != maxCount2)
                     finalLocation = maxStand;
@@ -77,6 +74,7 @@ namespace Intellidoorn_software
                     finalLocation = averageStand;
                 if (finalLocation != null)
                     location = finalLocation.locationDescription + finalHeight;
+                goodReading = false;
                 return location;
             } else
                 return "not valid";
