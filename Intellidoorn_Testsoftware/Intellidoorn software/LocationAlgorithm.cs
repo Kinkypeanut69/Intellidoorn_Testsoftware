@@ -26,11 +26,7 @@ namespace Intellidoorn_software
             int maxCount2 = 0;
             Stand maxStand = null;
 
-            int filteredCount = 0;
-            int filteredCount2 = 0;
-            Stand filteredStand = null;
-
-            int average = 0;
+            int highestSignalStrength = -65535;
             Stand averageStand = null;
 
             string location = "";
@@ -39,10 +35,9 @@ namespace Intellidoorn_software
             {
                 foreach (String tag in s.tags)
                 {
-                    string standCode = tag;
-
-                    // FIND HIGHEST OCCURRENCE AMONGST ALL TAGS
-                    int standOccurrence = ReaderConnection.tags.FindAll(t => t.itemCode.Contains(standCode)).Count();
+                    
+                    // FIND HIGHEST OCCURRENCE AMONGST ALL STANDS
+                    int standOccurrence = ReaderConnection.tags.FindAll(t => t.itemCode.Contains(tag)).Count();
                     if (standOccurrence > maxCount)
                     {
                         maxCount = standOccurrence;
@@ -51,40 +46,30 @@ namespace Intellidoorn_software
                     else if (standOccurrence == maxCount)
                         maxCount2 = standOccurrence;
 
-                    // FIND HIGHEST OCCURRENCE AMONGST THE TOP 5 TAGS
-                    int filteredOccurrence = strongestTags.FindAll(t => t.itemCode.Contains(standCode)).Count();
-                    if (filteredOccurrence > filteredCount)
-                    {
-                        filteredCount = filteredOccurrence;
-                        filteredStand = s;
-                    }
-                    else if (filteredOccurrence == filteredCount)
-                        filteredCount2 = filteredOccurrence;
-
-                    //CALCULATE AVERAGE VALUES OF THE TOP 5 TAGS
+                    //CALCULATE AVERAGE VALUES OF ALL TAGS
 
                     if (standOccurrence > 0)
                     {
-                        int tagAvg = ReaderConnection.tags.FindAll(t => t.itemCode.Contains(standCode)).Sum(t => t.signalStrength) / standOccurrence;
-                        if (tagAvg > average)
+                        int signalStrength = ReaderConnection.tags.FindAll(t => t.itemCode.Contains(tag)).Sum(t => t.signalStrength);
+                        //Console.WriteLine(tagAvg);
+                        if (signalStrength > highestSignalStrength)
                         {
-                            average = tagAvg;
+                            highestSignalStrength = signalStrength;
                             averageStand = s;
                         }
                     }
                 }
-                
             }
 
             if (maxCount != maxCount2)
                 finalLocation = maxStand;
-            else if (filteredCount != filteredCount2)
-                finalLocation = filteredStand;
-            else
+           else 
                 finalLocation = averageStand;
             if (finalLocation != null)
                 location = finalLocation.locationDescription;
             return location;
+
+
 
         }
     }
