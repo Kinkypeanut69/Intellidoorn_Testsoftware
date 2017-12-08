@@ -16,7 +16,6 @@ namespace Intellidoorn_software
         int finalHeight;
         bool goodReading = false;
 
-        internal Stand ClosestStand { get => closestStand; set => closestStand = value; }
 
         public String getLocation()
         {
