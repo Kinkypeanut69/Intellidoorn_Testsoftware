@@ -13,10 +13,9 @@ namespace Intellidoorn_software
         Stand closestStand;
         Stand finalLocation = null;
         List<TagInfo> strongestTags;
-        int finalHeight;
+        int finalHeight = -65535;
         bool goodReading = false;
 
-        internal Stand ClosestStand { get => closestStand; set => closestStand = value; }
 
         public String getLocation()
         {
@@ -62,6 +61,7 @@ namespace Intellidoorn_software
                 if (ReaderConnection.laserHeight >= s.baseHeight && ReaderConnection.laserHeight <= (s.baseHeight + s.height))
                 {
                     finalHeight = s.row;
+                    //Console.WriteLine(finalHeight);
                     goodReading = true;
                 }
             }

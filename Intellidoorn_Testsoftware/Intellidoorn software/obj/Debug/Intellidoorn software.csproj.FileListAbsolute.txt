@@ -27,3 +27,12 @@ C:\Users\Balint\Documents\GitHub\Intellidoorn_Testsoftware\Intellidoorn_Testsoft
 C:\Users\Balint\Documents\GitHub\Intellidoorn_Testsoftware\Intellidoorn_Testsoftware\Intellidoorn software\bin\Debug\Intellidoorn_Testsoftware.pdb
 C:\Users\Balint\Documents\GitHub\Intellidoorn_Testsoftware\Intellidoorn_Testsoftware\Intellidoorn software\obj\Debug\Intellidoorn_Testsoftware.exe
 C:\Users\Balint\Documents\GitHub\Intellidoorn_Testsoftware\Intellidoorn_Testsoftware\Intellidoorn software\obj\Debug\Intellidoorn_Testsoftware.pdb
+C:\Users\Gerbrand\Documents\Visual Studio 2015\Intellidoorn_Testsoftware\Intellidoorn_Testsoftware\Intellidoorn software\bin\Debug\Intellidoorn_Testsoftware.exe.config
+C:\Users\Gerbrand\Documents\Visual Studio 2015\Intellidoorn_Testsoftware\Intellidoorn_Testsoftware\Intellidoorn software\obj\Debug\Intellidoorn_Testsoftware.exe
+C:\Users\Gerbrand\Documents\Visual Studio 2015\Intellidoorn_Testsoftware\Intellidoorn_Testsoftware\Intellidoorn software\obj\Debug\Intellidoorn_Testsoftware.pdb
+C:\Users\Gerbrand\Documents\Visual Studio 2015\Intellidoorn_Testsoftware\Intellidoorn_Testsoftware\Intellidoorn software\obj\Debug\Intellidoorn software.csprojResolveAssemblyReference.cache
+C:\Users\Gerbrand\Documents\Visual Studio 2015\Intellidoorn_Testsoftware\Intellidoorn_Testsoftware\Intellidoorn software\obj\Debug\Intellidoorn_software.Form1.resources
+C:\Users\Gerbrand\Documents\Visual Studio 2015\Intellidoorn_Testsoftware\Intellidoorn_Testsoftware\Intellidoorn software\obj\Debug\Intellidoorn_Testsoftware.Properties.Resources.resources
+C:\Users\Gerbrand\Documents\Visual Studio 2015\Intellidoorn_Testsoftware\Intellidoorn_Testsoftware\Intellidoorn software\obj\Debug\Intellidoorn software.csproj.GenerateResource.Cache
+C:\Users\Gerbrand\Documents\Visual Studio 2015\Intellidoorn_Testsoftware\Intellidoorn_Testsoftware\Intellidoorn software\bin\Debug\Intellidoorn_Testsoftware.exe
+C:\Users\Gerbrand\Documents\Visual Studio 2015\Intellidoorn_Testsoftware\Intellidoorn_Testsoftware\Intellidoorn software\bin\Debug\Intellidoorn_Testsoftware.pdb

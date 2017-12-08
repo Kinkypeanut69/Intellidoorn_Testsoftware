@@ -31,17 +31,15 @@ namespace Intellidoorn_software
                 if (index > 0)
                     input = input.Substring(0, index);
 
-                index = input.LastIndexOf(":") + 1;
+                index = input.LastIndexOf(":") + 2;
                 input = (input.Substring(index, input.Length - index));
-
+                input = input.Replace(".", ",");
                 Output = Double.Parse(input);
-
             }
             catch (Exception ex)
             {
                 //Console.WriteLine(ex);
             }
-
             serialPort1.Close();
             return Output;
         }
