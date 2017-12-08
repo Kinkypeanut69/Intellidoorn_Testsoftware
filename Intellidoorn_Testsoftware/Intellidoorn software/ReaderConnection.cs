@@ -176,6 +176,7 @@ namespace Intellidoorn_software
             while(!disconnected)
             {
                 laserHeight = serial1.ReadData();
+                //Console.WriteLine(laserHeight);
                 Thread.Sleep(100);
             }
             Console.WriteLine("Exited Laser Connection");

@@ -18,14 +18,15 @@ namespace Intellidoorn_software
             serialPort1.BaudRate = 19200;
         }
 
+
         public double ReadData()
         {
             double Output = 0;
-            serialPort1.Open();
-
-            serialPort1.WriteLine("F");
+            
             try
             {
+                serialPort1.Open();
+                serialPort1.WriteLine("F");
                 string input = serialPort1.ReadLine();
                 int index = input.IndexOf("m");
                 if (index > 0)
