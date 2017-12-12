@@ -52,7 +52,70 @@ namespace Intellidoorn_software
                     if (standOccurrence > 0)
                     {
                         int signalStrength = ReaderConnection.tags.FindAll(t => t.itemCode.Contains(tag)).Sum(t => t.signalStrength);
+                        signalStrength = signalStrength + 2000;
                         totalStandStrength = totalStandStrength + signalStrength;
+                        if(totalStandStrength > highestSignalStrength)
+                        {
+                            highestSignalStrength = totalStandStrength;
+                            Console.WriteLine(totalStandStrength);
+                            averageStand = s;
+                        }
+                    }
+                }
+                if (ReaderConnection.laserHeight >= s.baseHeight && ReaderConnection.laserHeight <= (s.baseHeight + s.height))
+                {
+                    finalHeight = s.row;
+                    //Console.WriteLine(finalHeight);
+                    goodReading = true;
+                }
+            }
+
+            if (goodReading)
+            {
+                finalLocation = averageStand;
+                if (finalLocation != null)
+                    location = finalLocation.locationDescription + finalHeight;
+                goodReading = false;
+                return location;
+            } else
+                return "not valid";
+        }
+
+        public String getLocation2()
+        {
+            strongestTags = ReaderConnection.tags.OrderByDescending(t => t.signalStrength).ToList();
+            if (strongestTags.Count > 5)
+            {
+                strongestTags.RemoveRange(5, strongestTags.Count - 5);
+            }
+            int maxCount = 0;
+            int maxCount2 = 0;
+            Stand maxStand = null;
+
+            int highestSignalStrength = -65535;
+            Stand averageStand = null;
+
+            string location = "";
+            foreach (Stand s in ReaderConnection.stands)
+            {
+                foreach (String tag in s.tags)
+                {
+                    // FIND HIGHEST OCCURRENCE AMONGST ALL STANDS
+                    int standOccurrence = ReaderConnection.tags.FindAll(t => t.itemCode.Contains(tag)).Count();
+                    if (standOccurrence > maxCount)
+                    {
+                        maxCount = standOccurrence;
+                        maxStand = s;
+                    }
+                    else if (standOccurrence == maxCount)
+                        maxCount2 = standOccurrence;
+
+                    //CALCULATE WHAT TAG HAS THE HIGHEST SIGNAL STRENGTH
+
+                    if (standOccurrence > 0)
+                    {
+                        int signalStrength = ReaderConnection.tags.FindAll(t => t.itemCode.Contains(tag)).Sum(t => t.signalStrength);
+                        signalStrength = signalStrength;
                         if (signalStrength > highestSignalStrength)
                         {
                             highestSignalStrength = signalStrength;
@@ -70,16 +133,20 @@ namespace Intellidoorn_software
 
             if (goodReading)
             {
+
                 if (maxCount != maxCount2)
                     finalLocation = maxStand;
                 else
                     finalLocation = averageStand;
+                
                 if (finalLocation != null)
                     location = finalLocation.locationDescription + finalHeight;
                 goodReading = false;
                 return location;
-            } else
+            }
+            else
                 return "not valid";
         }
+
     }
 }
