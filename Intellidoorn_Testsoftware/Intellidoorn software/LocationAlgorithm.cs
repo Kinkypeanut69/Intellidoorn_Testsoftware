@@ -34,6 +34,7 @@ namespace Intellidoorn_software
             string location = "";
             foreach (Stand s in ReaderConnection.stands)
             {
+                int totalStandStrength = 0;
                 foreach (String tag in s.tags)
                 {
                     // FIND HIGHEST OCCURRENCE AMONGST ALL STANDS
@@ -46,11 +47,12 @@ namespace Intellidoorn_software
                     else if (standOccurrence == maxCount)
                         maxCount2 = standOccurrence;
 
-                    //CALCULATE AVERAGE VALUES OF ALL TAGS
+                    //CALCULATE WHAT TAG HAS THE HIGHEST SIGNAL STRENGTH
 
                     if (standOccurrence > 0)
                     {
                         int signalStrength = ReaderConnection.tags.FindAll(t => t.itemCode.Contains(tag)).Sum(t => t.signalStrength);
+                        totalStandStrength = totalStandStrength + signalStrength;
                         if (signalStrength > highestSignalStrength)
                         {
                             highestSignalStrength = signalStrength;

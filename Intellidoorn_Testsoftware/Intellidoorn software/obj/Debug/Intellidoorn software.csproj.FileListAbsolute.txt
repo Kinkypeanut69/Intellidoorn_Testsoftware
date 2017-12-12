@@ -36,3 +36,13 @@ C:\Users\Gerbrand\Documents\Visual Studio 2015\Intellidoorn_Testsoftware\Intelli
 C:\Users\Gerbrand\Documents\Visual Studio 2015\Intellidoorn_Testsoftware\Intellidoorn_Testsoftware\Intellidoorn software\obj\Debug\Intellidoorn software.csproj.GenerateResource.Cache
 C:\Users\Gerbrand\Documents\Visual Studio 2015\Intellidoorn_Testsoftware\Intellidoorn_Testsoftware\Intellidoorn software\bin\Debug\Intellidoorn_Testsoftware.exe
 C:\Users\Gerbrand\Documents\Visual Studio 2015\Intellidoorn_Testsoftware\Intellidoorn_Testsoftware\Intellidoorn software\bin\Debug\Intellidoorn_Testsoftware.pdb
+D:\Documents\GitHub\Intellidoorn_Testsoftware\Intellidoorn_Testsoftware\Intellidoorn software\obj\Debug\Intellidoorn software.csprojResolveAssemblyReference.cache
+D:\Documents\GitHub\Intellidoorn_Testsoftware\Intellidoorn_Testsoftware\Intellidoorn software\obj\Debug\Intellidoorn_software.Form1.resources
+D:\Documents\GitHub\Intellidoorn_Testsoftware\Intellidoorn_Testsoftware\Intellidoorn software\obj\Debug\Intellidoorn_Testsoftware.Properties.Resources.resources
+D:\Documents\GitHub\Intellidoorn_Testsoftware\Intellidoorn_Testsoftware\Intellidoorn software\obj\Debug\Intellidoorn software.csproj.GenerateResource.Cache
+D:\Documents\GitHub\Intellidoorn_Testsoftware\Intellidoorn_Testsoftware\Intellidoorn software\obj\Debug\Intellidoorn software.csproj.CoreCompileInputs.cache
+D:\Documents\GitHub\Intellidoorn_Testsoftware\Intellidoorn_Testsoftware\Intellidoorn software\obj\Debug\Intellidoorn_Testsoftware.exe
+D:\Documents\GitHub\Intellidoorn_Testsoftware\Intellidoorn_Testsoftware\Intellidoorn software\obj\Debug\Intellidoorn_Testsoftware.pdb
+D:\Documents\GitHub\Intellidoorn_Testsoftware\Intellidoorn_Testsoftware\Intellidoorn software\bin\Debug\Intellidoorn_Testsoftware.exe.config
+D:\Documents\GitHub\Intellidoorn_Testsoftware\Intellidoorn_Testsoftware\Intellidoorn software\bin\Debug\Intellidoorn_Testsoftware.exe
+D:\Documents\GitHub\Intellidoorn_Testsoftware\Intellidoorn_Testsoftware\Intellidoorn software\bin\Debug\Intellidoorn_Testsoftware.pdb
