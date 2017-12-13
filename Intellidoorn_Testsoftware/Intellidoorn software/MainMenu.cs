@@ -21,13 +21,13 @@ namespace Intellidoorn_software
     {
         ReaderConnection reader;
         bool connected;
-        public static string COMPort = "COM4";
+        public static string COMPort;
         public Form1()
         {
             AllocConsole();
             connected = false;
             InitializeComponent();
-            textBox1.Text = "COM4";
+            textBox1.Text = Intellidoorn_Testsoftware.Properties.Settings.Default.Setting;
         }
 
     [DllImport("kernel32.dll", SetLastError = true)]
@@ -36,6 +36,8 @@ namespace Intellidoorn_software
 
     private void button1_Click(object sender, EventArgs e)
         {
+            this.Hide();
+            COMPort = Intellidoorn_Testsoftware.Properties.Settings.Default.Setting;
             reader = ReaderConnection.GetInstance();
             ReaderConnection.OpenConnection();
             
@@ -54,7 +56,13 @@ namespace Intellidoorn_software
 
         private void button2_Click(object sender, EventArgs e)
         {
-            COMPort = textBox1.Text;
+            Intellidoorn_Testsoftware.Properties.Settings.Default.Setting = textBox1.Text;
+            Intellidoorn_Testsoftware.Properties.Settings.Default.Save();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
