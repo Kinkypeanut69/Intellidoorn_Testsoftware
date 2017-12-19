@@ -39,7 +39,7 @@ namespace Intellidoorn_software
             }
             catch (Exception ex)
             {
-                //Console.WriteLine(ex);
+                //ignore
             }
             serialPort1.Close();
             return Output;

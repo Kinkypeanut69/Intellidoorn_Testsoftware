@@ -26,7 +26,6 @@ namespace Intellidoorn_software
         static StreamReader input;
         static TcpClient socket;
 
-
         static string host = "192.168.10.99";
         static int port = 23;
 
@@ -38,12 +37,10 @@ namespace Intellidoorn_software
         public static TagInfo currentCarpet;
         public static string currentCarpetNumber;
         public static string targetStand;
-
         public static String standCode = "100000";
         public static TagInfo strongestTag = null;
         public static double laserHeight = -200.0;
         
-
         public ReaderConnection()
         {
             scanThread = new Thread(Run);
@@ -54,7 +51,6 @@ namespace Intellidoorn_software
             stands = new List<Stand>();
             state = new LocationAlgorithm();
             serial1 = new Serial();
-
 
             Stand a1 = new Stand(1, "100000000000000000000103", "100000000000000000000112", "100000000000000000000126", "100000000000000000000127", "A", 1.30, 0.00, 1);
             Stand a2 = new Stand(2, "100000000000000000000112", "100000000000000000000103", "100000000000000000000118", "100000000000000000000123", "A", 1.00, 1.30, 2);
@@ -87,14 +83,6 @@ namespace Intellidoorn_software
             disconnected = false;
         }
 
-        public static ReaderConnection GetInstance()
-        {
-            if (_instance == null)
-                _instance = new ReaderConnection();
-
-            return _instance;
-        }
-
         public static void OpenConnection()
         {
             try
@@ -111,11 +99,25 @@ namespace Intellidoorn_software
             {
                 Console.WriteLine($"Couldn't connect to reader on host { host }.");
             }
-            
-            //controlThread.Start();
+
+            //printing of tags and corresponding signalstrengths
+            //controlThread.Start(); 
+
             Thread.Sleep(600);
+
+            //printing of strongest stand
             standThread.Start();
-            laserThread.Start();
+
+            //printing of laser distance measurement
+            //laserThread.Start();
+        }
+
+        public static ReaderConnection GetInstance()
+        {
+            if (_instance == null)
+                _instance = new ReaderConnection();
+
+            return _instance;
         }
 
         public static void CloseConnection()
@@ -130,7 +132,6 @@ namespace Intellidoorn_software
         {
             while (!disconnected)
             {
-                //Console.Clear();
                 foreach (TagInfo t in tags) {
                     Console.WriteLine(t.ToString());
                 }
@@ -153,30 +154,11 @@ namespace Intellidoorn_software
             Console.WriteLine("Exited Stand Print");
         }
 
-        public static TagInfo getStrongestSignalTag()
-        {
-            bool first = true;
-            foreach(TagInfo tag in tags)
-            {
-                if (first)
-                {
-                    strongestTag = tag;
-                }
-                if (tag.signalStrength > strongestTag.signalStrength)
-                {
-                    strongestTag = tag;
-                }
-            }
-            first = false;
-            return strongestTag;
-        }
-
         public static void laserDistance()
         {
             while(!disconnected)
             {
                 laserHeight = serial1.ReadData();
-                //Console.WriteLine(laserHeight);
                 Thread.Sleep(100);
             }
             Console.WriteLine("Exited Laser Connection");
@@ -223,7 +205,6 @@ namespace Intellidoorn_software
                         tags.Remove(tag);
                 }
             }
-
             Console.WriteLine("Exited run");
         }
     }
