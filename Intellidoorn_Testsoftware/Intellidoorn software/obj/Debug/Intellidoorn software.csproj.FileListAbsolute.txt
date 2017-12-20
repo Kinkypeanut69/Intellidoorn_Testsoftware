@@ -55,4 +55,4 @@ C:\Users\NUC-VWC211015\Documents\GitHub\Intellidoorn_Testsoftware\Intellidoorn_T
 C:\Users\NUC-VWC211015\Documents\GitHub\Intellidoorn_Testsoftware\Intellidoorn_Testsoftware\Intellidoorn software\obj\Debug\Intellidoorn software.csproj.CoreCompileInputs.cache
 C:\Users\NUC-VWC211015\Documents\GitHub\Intellidoorn_Testsoftware\Intellidoorn_Testsoftware\Intellidoorn software\obj\Debug\Intellidoorn_Testsoftware.exe
 C:\Users\NUC-VWC211015\Documents\GitHub\Intellidoorn_Testsoftware\Intellidoorn_Testsoftware\Intellidoorn software\obj\Debug\Intellidoorn_Testsoftware.pdb
-C:\Users\Balint\Documents\GitHub\Intellidoorn_Testsoftware\Intellidoorn_Testsoftware\Intellidoorn software\obj\Debug\Intellidoorn_software.Form1.resources
+C:\Users\Balint\Documents\GitHub\Intellidoorn_Testsoftware\Intellidoorn_Testsoftware\Intellidoorn software\obj\Debug\Intellidoorn_software.MainMenu.resources

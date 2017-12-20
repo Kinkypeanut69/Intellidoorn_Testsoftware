@@ -9,15 +9,14 @@ namespace Intellidoorn_software
 {
     class Serial
     {
-        private System.IO.Ports.SerialPort serialPort1;
+        private System.IO.Ports.SerialPort SerialPortLaser;
         
         public Serial()
         {
-            this.serialPort1 = new SerialPort();
-            serialPort1.PortName = Form1.COMPort;
-            serialPort1.BaudRate = 19200;
+            this.SerialPortLaser = new SerialPort();
+            SerialPortLaser.PortName = MainMenu.COMPort;
+            SerialPortLaser.BaudRate = 19200;
         }
-
 
         public double ReadData()
         {
@@ -25,9 +24,9 @@ namespace Intellidoorn_software
             
             try
             {
-                serialPort1.Open();
-                serialPort1.WriteLine("F");
-                string input = serialPort1.ReadLine();
+                SerialPortLaser.Open();
+                SerialPortLaser.WriteLine("F");
+                string input = SerialPortLaser.ReadLine();
                 int index = input.IndexOf("m");
                 if (index > 0)
                     input = input.Substring(0, index);
@@ -39,9 +38,9 @@ namespace Intellidoorn_software
             }
             catch (Exception ex)
             {
-                //ignore
+                //Ignore
             }
-            serialPort1.Close();
+            SerialPortLaser.Close();
             return Output;
         }
     }

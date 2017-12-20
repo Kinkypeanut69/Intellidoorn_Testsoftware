@@ -17,12 +17,12 @@ using System.Windows.Forms;
 namespace Intellidoorn_software
 {
     
-    public partial class Form1 : Form
+    public partial class MainMenu : Form
     {
         ReaderConnection reader;
         bool connected;
         public static string COMPort;
-        public Form1()
+        public MainMenu()
         {
             AllocConsole();
             connected = false;

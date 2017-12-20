@@ -65,7 +65,6 @@ namespace Intellidoorn_software
                 if (ReaderConnection.laserHeight >= s.baseHeight && ReaderConnection.laserHeight <= (s.baseHeight + s.height))
                 {
                     finalHeight = s.row;
-                    //Console.WriteLine(finalHeight);
                     goodReading = true;
                 }
             }
@@ -81,7 +80,7 @@ namespace Intellidoorn_software
                 return "not valid";
         }
 
-        public String getLocationOld()
+        public String getLocationAlternative()
         {
             strongestTags = ReaderConnection.tags.OrderByDescending(t => t.signalStrength).ToList();
             if (strongestTags.Count > 5)
@@ -115,7 +114,6 @@ namespace Intellidoorn_software
                     if (standOccurrence > 0)
                     {
                         int signalStrength = ReaderConnection.tags.FindAll(t => t.itemCode.Contains(tag)).Sum(t => t.signalStrength);
-                        signalStrength = signalStrength;
                         if (signalStrength > highestSignalStrength)
                         {
                             highestSignalStrength = signalStrength;
